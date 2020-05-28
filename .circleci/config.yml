@@ -25,7 +25,7 @@ jobs:
             NPM_TEST_OUTPUT: test-results/node/node-tests.xml
 
       - persist_to_workspace:
-          root: ~/react-redux-starter-kit
+          root: .
           paths:
             - node_modules
 
