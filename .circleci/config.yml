@@ -16,5 +16,18 @@ jobs:
           paths:
             - node_modules
             
-      - run: npm install
-      - run: npm test
+      - run:
+          name: node tests
+          command:
+            mkdir -p test-results/node
+            npm run test
+          environment:
+            NPM_TEST_OUTPUT: test-results/node/node-tests.xml
+
+      - persist_to_workspace:
+          root: ~/react-redux-starter-kit
+          paths:
+            - node_modules
+
+      - store_test_results:
+          path: test-results
