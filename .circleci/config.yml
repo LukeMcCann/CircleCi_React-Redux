@@ -1,0 +1,15 @@
+// Firstly, specify the version to use
+version: 2 
+// specify sections
+jobs:
+  build:
+    working_directory: ~/tmp
+    // declare to build in docker container with node7 installed
+    docker:
+      - image: circleci/node:7
+    // define a series of build steps
+    steps: 
+    // checkout the git repo - CircleCi has an awareness of the repository, therefore we don't need to specify the URL
+      - checkout
+      - run: npm install
+      - run: npm test
